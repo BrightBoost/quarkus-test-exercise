@@ -52,6 +52,9 @@ public class StudentResource {
     @Path("country/{country}")
     public Response getByCountry(@PathParam("country") String country) {
         List<Student> students = studentRepository.findByCountry(country);
+        if(students.size() == 0) {
+            return Response.status(NOT_FOUND).build();
+        }
         return Response.ok(students).build();
     }
 
