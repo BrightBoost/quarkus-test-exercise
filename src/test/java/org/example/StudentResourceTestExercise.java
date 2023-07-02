@@ -120,4 +120,74 @@ public class StudentResourceTestExercise {
         // 1. Makes a DELETE request to "/students/{id}" where id does not exist
         // 2. Checks that the response status code is NOT_FOUND
     }
+
+    // week 5 exercises!
+    @Test
+    @Order(6)
+    void getByMajor() {
+        // You should implement a test that:
+        // 1. Makes a GET request to "/students/major/{major}"
+        // 2. Checks the response status code
+        // 3. Validates the response body contains the expected data for the given major
+    }
+
+    @Test
+    @Order(6)
+    void getByMajorKO() {
+        // You should implement a test that:
+        // 1. Makes a GET request to "/students/major/{major}" where major does not exist
+        // 2. Checks that the response status code is OK
+        // 3. Validates that the response body is empty
+    }
+
+    @Test
+    @Order(7)
+    void updateCountry() {
+        // You should implement a test that:
+        // 1. Makes a PUT request to "/students/country/{id}" with the new country data
+        // 2. Checks that the response status code is OK
+        // 3. Validates the response body contains the updated data for the given id
+    }
+
+    @Test
+    @Order(7)
+    void updateCountryKO() {
+        // You should implement a test that:
+        // 1. Makes a PUT request to "/students/country/{id}" where id does not exist
+        // 2. Checks that the response status code is NOT_FOUND
+    }
+
+    @Test
+    @Order(8)
+    void createWithInvalidData() {
+        // You should implement a test that:
+        // 1. Creates a new student JsonObject with invalid or malformed data
+        // 2. Makes a POST request to "/students" with the created JsonObject
+        // 3. Checks that the response status code is BAD_REQUEST or another appropriate error status
+    }
+
+    @Test
+    @Order(9)
+    void testPagination() {
+        // You should implement a test that:
+        // 1. Makes a GET request to "/students?page=0&size=10"
+        // 2. Checks that the response status code is OK
+        // 3. Validates the response body contains the expected data and size
+    }
+
+    @Test
+    @Order(9)
+    void testPaginationNoResults() {
+        // You should implement a test that:
+        // 1. Makes a GET request to "/students?page=1&size=10"
+        // 2. Checks that the response status code is OK
+        // 3. Validates the response body contains the expected data and size
+    }
+
+    // add at least 4 tests to ensure the correct functioning of the two new endpoints at the end of the StudentResource file
+
+
+
+
+
 }
