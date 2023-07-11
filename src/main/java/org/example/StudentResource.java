@@ -1,5 +1,6 @@
 package org.example;
 
+import io.quarkus.panache.common.Page;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.GET;
@@ -28,6 +29,14 @@ public class StudentResource {
         List<Student> students = studentRepository.listAll();
         return Response.ok(students).build();
     }
+
+    @GET
+    @Path("page")
+    public Response getAll(@QueryParam("page") int page, @QueryParam("size") int size) {
+        List<Student> pagedStudents = studentRepository.findAll().page(Page.of(page, size)).list();
+        return Response.ok(pagedStudents).build();
+    }
+
 
     @GET
     @Path("{id}")
